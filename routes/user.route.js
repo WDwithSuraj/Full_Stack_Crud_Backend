@@ -10,7 +10,6 @@ userRouter.post("/register", async (req, res) => {
     try {
         const { email, password } = req.body;
         const existingUser = await UserModel.find({ email })
-        console.log(existingUser)
         if (existingUser.length) {
             res.status(200).send({ msg: "User already registered" })
         } else {
